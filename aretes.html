@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aretes y Topos — Puerto Fino Plata Ley 925</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/puerto.css" />
+  <link rel="stylesheet" href="css/catalogos.css" />
+</head>
+<body class="page-catalogo">
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="logo y foto/logo.png" alt="Puerto Fino"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <span class="nav-logo-text" style="display:none;">Puerto Fino</span>
+    </a>
+    <span class="nav-tagline">Plata Ley 925</span>
+  </nav>
+
+  <!-- ── NAV CATEGORÍAS ── -->
+  <div class="cat-nav">
+    <div class="cat-nav-inner">
+          <a href="pulseras.html" class="cat-nav-link ">Pulseras</a>
+          <a href="aretes.html" class="cat-nav-link active">Aretes y Topos</a>
+          <a href="cadenas.html" class="cat-nav-link ">Cadenas</a>
+          <a href="dijes.html" class="cat-nav-link ">Dijes</a>
+          <a href="anillos.html" class="cat-nav-link ">Anillos</a>
+          <a href="rosarios.html" class="cat-nav-link ">Rosarios</a>
+          
+    </div>
+  </div>
+
+  <!-- ── HERO MINI ── -->
+  <div class="cat-hero">
+    <a href="index.html" class="cat-hero-back">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Volver al inicio
+    </a>
+    <h1 class="cat-hero-title">Aretes y Topos</h1>
+    <div class="cat-hero-rule"></div>
+  </div>
+
+  <!-- ── FILTRO ── -->
+  <div class="filter-bar fade-up">
+    <p class="filter-count"><span id="productCount">0</span> productos</p>
+    <div class="filter-btns">
+      <button class="filter-btn" data-orden="asc">↑ Menor precio</button>
+      <button class="filter-btn" data-orden="desc">↓ Mayor precio</button>
+    </div>
+  </div>
+
+  <!-- ── GRID PRODUCTOS ── -->
+  <section class="productos-section">
+    <div class="productos-grid" id="productosGrid">
+      <!-- JS renderiza las tarjetas aquí -->
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <strong>Puerto Fino</strong>
+    <p class="footer-sub">© 2025 — Accesorios en Plata Ley 925</p>
+  </footer>
+
+  <!-- ── BACK TO TOP ── -->
+  <button class="back-top" id="backTop" aria-label="Volver arriba">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <!-- ── LIGHTBOX ── -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lbClose">✕</button>
+    <img class="lightbox-img" id="lbImg" src="" alt="" />
+    <div class="lightbox-info">
+      <h3 id="lbNombre"></h3>
+      <p id="lbPrecio"></p>
+    </div>
+  </div>
+
+  <!-- ── PRODUCTOS DATA ── -->
+  <!-- 
+    CÓMO AGREGAR PRODUCTOS:
+    - nombre: nombre del producto (string)
+    - precio: precio en pesos colombianos SIN puntos (número)
+    - imagen: ruta a la foto desde la raíz del proyecto
+    Ejemplo: { nombre: "Mi Producto", precio: 85000, imagen: "aretes y topos/mifoto.jpg" }
+  -->
+  <script>
+    window.PRODUCTOS = [
+  { nombre: "Topo rosa 3mm", precio: 25000, imagen: "aretes-y-topos/Topo rosa 3mm.png" },
+  { nombre: "Topo verde 3mm", precio: 25000, imagen: "aretes-y-topos/Topo verde 3mm.png" },
+  { nombre: "Topo Bear 4x5 mm S-30042", precio: 50000, imagen: "aretes-y-topos/Topo Bear Glow 4x5 mm S-30042.png" },
+  { nombre: "Topo Eiffel spark 4x7 mm S-30039", precio: 100000, imagen: "aretes-y-topos/Topo Eiffel spark 4x7 mm S-30039.png" },
+  { nombre: "Topos Ocean Pair 5 mm S-30035", precio: 100000, imagen: "aretes-y-topos/Topos Ocean Pair 5 mm S-30035.png" },
+  { nombre: "Arete Topo Star 5 mm", precio: 50000, imagen: "aretes-y-topos/Arete Topo Star 5 mm.png" },
+  { nombre: "Arete Topo Saturn Classic 8x5", precio: 50000, imagen: "aretes-y-topos/Arete Topo Saturn Classic 8x5.png" },
+  { nombre: "Arete Luxe Dot 2 mm", precio: 30000, imagen: "aretes-y-topos/Arete Luxe Dot 2 mm.png" },
+  { nombre: "Arete Facet Hoop 7 mm", precio: 30000, imagen: "aretes-y-topos/Arete Facet Hoop 7 mm.png" },
+  { nombre: "Arete Topo Knot 7 mm", precio: 100000, imagen: "aretes-y-topos/Arete Topo Knot 7 mm.png" },
+  { nombre: "Arete Tria Luxe MT 3 mm", precio: 100000, imagen: "aretes-y-topos/Arete Tria Luxe MT 3 mm.png" },
+  { nombre: "Arete Heart 6 mm", precio: 60000, imagen: "aretes-y-topos/Arete Heart 6 mm.png" },
+  { nombre: "Topo verde 4mm", precio: 30000, imagen: "aretes-y-topos/Topo verde 4mm.png" },
+  { nombre: "Topo Rojo 4mm", precio: 30000, imagen: "aretes-y-topos/Topo Rojo 4mm.png" },
+  { nombre: "Topo negro 4mm", precio: 30000, imagen: "aretes-y-topos/Topo Negro 4mm.png" },
+  { nombre: "Topo verde 4mm", precio: 30000, imagen: "aretes-y-topos/Topoo Verde 4mm.png" },
+  { nombre: "Topo rosado 4mm", precio: 30000, imagen: "aretes-y-topos/Topo rosado 4mm.png" },
+  { nombre: "Topo rojo 3mm", precio: 30000, imagen: "aretes-y-topos/Topo rojo 3mm.png" },
+  { nombre: "Topo verde 3mm", precio: 30000, imagen: "aretes-y-topos/Topo verde 3 mm.png" },
+  { nombre: "Topo azul 3mm", precio: 30000, imagen: "aretes-y-topos/Topo Azul 3mm.png" },
+  { nombre: "Conjunto dije y topos corazón", precio: 100000, imagen: "aretes-y-topos/Conjunto dije y topos corazón.png" },
+  { nombre: "Candonga 1,3 cm", precio: 30000, imagen: "aretes-y-topos/Candonga 1,3 cm.png" },
+  { nombre: "Topos tortuga 6x5mm", precio: 30000, imagen: "aretes-y-topos/Topos tortuga 6x5mm.png" },
+  { nombre: "Topo huella 8mm", precio: 40000, imagen: "aretes-y-topos/Topo huella 8mm.png" },
+  { nombre: "Conjunto dijes y topos", precio: 110000, imagen: "aretes-y-topos/Conjunto dijes y topos.png" },
+  { nombre: "Candonga 1,1 cm", precio: 60000, imagen: "aretes-y-topos/Candonga 1,1 cm.png" },
+  { nombre: "Topo cruz 8mm", precio: 30000, imagen: "aretes-y-topos/Topo cruz 8mm.png" },
+  { nombre: "Candonga 3,2 cm", precio: 100000, imagen: "aretes-y-topos/Candonga 3,2 cm.png" },
+  { nombre: "Arete Move Pave MSK 4x8 mm", precio: 80000, imagen: "aretes-y-topos/Arete Move Pave MSK 4x8 mm.png" },
+  { nombre: "Topo Destello Fine 1 mm", precio: 30000, imagen: "aretes-y-topos/Topo Destello Fine 1 mm.png" },
+  { nombre: "Topo Destello Fine 2,4 mm", precio: 40000, imagen: "aretes-y-topos/Topo Destello Fine 2,4 mm.png" },
+  { nombre: "Topo Destello Fine 2,1 mm", precio: 40000, imagen: "aretes-y-topos/Topo Destello Fine 2,1 mm.png" },
+  { nombre: "Topo Balin #3", precio: 30000, imagen: "aretes-y-topos/Topo Balin 3.png" },
+  { nombre: "Topo Balin #2", precio: 50000, imagen: "aretes-y-topos/Topo Balin 2.png" },
+  { nombre: "Topo Triangle Crystal 3 mm", precio: 80000, imagen: "aretes-y-topos/Topo Triangle Crystal 3 mm.png" },
+  { nombre: "Topo Triangle Crystal 4 mm", precio: 50000, imagen: "aretes-y-topos/Topo Triangle Crystal 4 mm.png" },
+  { nombre: "Topo Triangle Crystal 5 mm", precio: 60000, imagen: "aretes-y-topos/Topo Triangle Crystal 5 mm.png" },
+  { nombre: "Topo Balin #4", precio: 30000, imagen: "aretes-y-topos/Topo Balin 4.png" },
+  { nombre: "Topo perla 5mm", precio: 40000, imagen: "aretes-y-topos/Topo perla 5mm.png" },
+  { nombre: "Candonga 1,7 cm", precio: 40000, imagen: "aretes-y-topos/Candonga 1,7cm.png" },
+  { nombre: "Topo de seguridad estrella azul 7mm", precio: 40000, imagen: "aretes-y-topos/Topo de seguridad estrella azul 7mm.png" },
+  { nombre: "Topo de seguridad divino niño 9x6mm", precio: 40000, imagen: "aretes-y-topos/Topo de seguridad divino niño 9x6mm.png" },
+  { nombre: "Topo de seguridad tortuga 7mm", precio: 40000, imagen: "aretes-y-topos/Topo de seguridad tortuga 7mm.png" },
+  { nombre: "Topo de seguridad elefante 1cm x 6mm", precio: 40000, imagen: "aretes-y-topos/Topo de seguridad elefante 1cm x 6mm.png" },
+  { nombre: "Topo de seguridad San benito 8mm", precio: 40000, imagen: "aretes-y-topos/Topo de seguridad San benito 8mm.png" },
+  { nombre: "Topo de seguridad Gucci 6x4mm", precio: 80000, imagen: "aretes-y-topos/Topo de seguridad Gucci 6x4mm.png" },
+  { nombre: "Topo de seguridad cruz 9x6mm", precio: 80000, imagen: "aretes-y-topos/Topo de seguridad cruz 9x6mm.png" },
+  { nombre: "Topo de seguridad sol 7mm", precio: 40000, imagen: "aretes-y-topos/Topo de seguridad sol 7mm.png" },
+  { nombre: "Topo de seguridad oso 5x6mm", precio: 40000, imagen: "aretes-y-topos/Topo de seguridad oso 5x6mm.png" },
+  { nombre: "Topo de seguridad cuadrado 7mm", precio: 40000, imagen: "aretes-y-topos/Topo de seguridad cuadrado 7mm.png" },
+  { nombre: "Topo de seguridad estrella 7mm", precio: 40000, imagen: "aretes-y-topos/Topo de seguridad estrella 7mm.png" },
+  { nombre: "Topo de seguridad huella 8 mm", precio: 80000, imagen: "aretes-y-topos/Topo de seguridad huella 8 mm.png" },
+  { nombre: "Topo de seguridad paloma 8mm", precio: 80000, imagen: "aretes-y-topos/Topo de seguridad paloma 8mm.png" },
+  { nombre: "Topo de seguridad oso 8mm", precio: 40000, imagen: "aretes-y-topos/Topo seguridad oso 8mm.png" },
+  { nombre: "Topo circón cuadrado 5mm", precio: 40000, imagen: "aretes-y-topos/Topo circón cuadrado 5mm.png" },
+  { nombre: "Topo de seguridad mariposa 7mm", precio: 40000, imagen: "aretes-y-topos/Topo de seguridad mariposa 7mm.png" },
+  { nombre: "Topo de seguridad infinito 8mm", precio: 40000, imagen: "aretes-y-topos/Topo de seguridad infinito 8mm.png" },
+  { nombre: "Candonga 3,8 cm", precio: 90000, imagen: "aretes-y-topos/Candonga 3,8 cm.png" },
+  { nombre: "Topo estrella rojo", precio: 30000, imagen: "aretes-y-topos/Topo estrella rojo.png" },
+  { nombre: "Topo estrella negro", precio: 30000, imagen: "aretes-y-topos/Topo estrella negro.png" },
+  { nombre: "Topo Balin 3", precio: 30000, imagen: "aretes-y-topos/Topo Balín 3mm.png" },
+  { nombre: "Topo estrella 9mm", precio: 60000, imagen: "aretes-y-topos/Topo estrella 9mm.png" },
+  { nombre: "Topo de seguridad Oso 8mm x 5mm", precio: 40000, imagen: "aretes-y-topos/Topo de seguridad Oso 8mm x 5mm.png" },
+  { nombre: "Topo de seguridad Torre paris 6mmx 7mmmm", precio: 40000, imagen: "aretes-y-topos/Topo de seguridad Torre paris 6mmx 7mmmm.png" },
+  { nombre: "Topo de seguridad Rolex 7mm", precio: 40000, imagen: "aretes-y-topos/Topo de seguridad Rolex 7mm.png" },
+  { nombre: "Topo de seguridad Virgen 5mm x 8mm", precio: 40000, imagen: "aretes-y-topos/Topo de seguridad Virgen 5mm x 8mm.png" },
+  { nombre: "Topo circón 3mm", precio: 30000, imagen: "aretes-y-topos/Topo circón 3mm.png" },
+  { nombre: "Dije oso 1 cm", precio: 30000, imagen: "aretes-y-topos/Dije oso 1 cm.png" },
+  { nombre: "Topo oso de seguridad 1 cm", precio: 40000, imagen: "aretes-y-topos/Topo oso de seguridad 1 cm.png" },
+  { nombre: "Candonga 1,3 cm", precio: 40000, imagen: "aretes-y-topos/CandongaA 1,3 cm.png" },
+  { nombre: "Candonga 1,1 cm", precio: 25000, imagen: "aretes-y-topos/CandongaA 1,1 cm.png" },
+  { nombre: "Candonga 8mm", precio: 25000, imagen: "aretes-y-topos/Candonga 8mm.png" },
+  { nombre: "Topo de seguridad 6mm", precio: 40000, imagen: "aretes-y-topos/Topo de seguridad 6mm.png" },
+];
+  </script>
+
+  <!-- JS compartido — siempre al final -->
+  <script src="js/catalogos.js"></script>
+
+</body>
+</html>

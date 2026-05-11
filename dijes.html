@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dijes — Puerto Fino Plata Ley 925</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/puerto.css" />
+  <link rel="stylesheet" href="css/catalogos.css" />
+</head>
+<body class="page-catalogo">
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="logo y foto/logo.png" alt="Puerto Fino"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <span class="nav-logo-text" style="display:none;">Puerto Fino</span>
+    </a>
+    <span class="nav-tagline">Plata Ley 925</span>
+  </nav>
+
+  <!-- ── NAV CATEGORÍAS ── -->
+  <div class="cat-nav">
+    <div class="cat-nav-inner">
+          <a href="pulseras.html" class="cat-nav-link ">Pulseras</a>
+          <a href="aretes.html" class="cat-nav-link ">Aretes y Topos</a>
+          <a href="cadenas.html" class="cat-nav-link ">Cadenas</a>
+          <a href="dijes.html" class="cat-nav-link active">Dijes</a>
+          <a href="anillos.html" class="cat-nav-link ">Anillos</a>
+          <a href="rosarios.html" class="cat-nav-link ">Rosarios</a>
+          
+    </div>
+  </div>
+
+  <!-- ── HERO MINI ── -->
+  <div class="cat-hero">
+    <a href="index.html" class="cat-hero-back">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Volver al inicio
+    </a>
+    <h1 class="cat-hero-title">Dijes</h1>
+    <div class="cat-hero-rule"></div>
+  </div>
+
+  <!-- ── FILTRO ── -->
+  <div class="filter-bar fade-up">
+    <p class="filter-count"><span id="productCount">0</span> productos</p>
+    <div class="filter-btns">
+      <button class="filter-btn" data-orden="asc">↑ Menor precio</button>
+      <button class="filter-btn" data-orden="desc">↓ Mayor precio</button>
+    </div>
+  </div>
+
+  <!-- ── GRID PRODUCTOS ── -->
+  <section class="productos-section">
+    <div class="productos-grid" id="productosGrid">
+      <!-- JS renderiza las tarjetas aquí -->
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <strong>Puerto Fino</strong>
+    <p class="footer-sub">© 2025 — Accesorios en Plata Ley 925</p>
+  </footer>
+
+  <!-- ── BACK TO TOP ── -->
+  <button class="back-top" id="backTop" aria-label="Volver arriba">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <!-- ── LIGHTBOX ── -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lbClose">✕</button>
+    <img class="lightbox-img" id="lbImg" src="" alt="" />
+    <div class="lightbox-info">
+      <h3 id="lbNombre"></h3>
+      <p id="lbPrecio"></p>
+    </div>
+  </div>
+
+  <!-- ── PRODUCTOS DATA ── -->
+  <!-- 
+    CÓMO AGREGAR PRODUCTOS:
+    - nombre: nombre del producto (string)
+    - precio: precio en pesos colombianos SIN puntos (número)
+    - imagen: ruta a la foto desde la raíz del proyecto
+    Ejemplo: { nombre: "Mi Producto", precio: 85000, imagen: "dijes/mifoto.jpg" }
+  -->
+  <script>
+    window.PRODUCTOS = [
+  { nombre: "Dije Mini San Miguel Arcangel XS 0.8 Cms", precio: 50000, imagen: "dijes/Dije Mini San Miguel Arcangel XS 0.8 Cms.png" },
+  { nombre: "Dije Mini Milagrosa XS 0.8 Cms", precio: 50000, imagen: "dijes/Dije Mini Milagrosa XS 0.8 Cms.png" },
+  { nombre: "Dije Mini Milagrosa XS 0.8 Cms", precio: 50000, imagen: "dijes/Dije Mini Milagrosa XS 0.8 Cms.png" },
+  { nombre: "Dije Mini San Benito XS 0.8 Cms", precio: 50000, imagen: "dijes/Dije Mini San Benito XS 0.8 Cms.png" },
+  { nombre: "Dije Mini San Benito 1 Cms no incluye cadena", precio: 40000, imagen: "dijes/Dije Mini San Benito 1 Cms no incluye cadena.png" },
+  { nombre: "Dije San Benito 1,2 cms", precio: 60000, imagen: "dijes/Dije San Benito 1,2 cms.png" },
+  { nombre: "Dije Virgen De Guadalupe no incluye cadena 1,2 cms", precio: 50000, imagen: "dijes/Dije Virgen De Guadalupe no incluye cadena 1,2 cms.png" },
+  { nombre: "Dije Milagrosa 1,2 cms no incluye cadena", precio: 50000, imagen: "dijes/Dije Milagrosa 1,2 cms no incluye cadena.png" },
+  { nombre: "Dije San Miguel Arcangel no incluye cadena 1,2 cms", precio: 50000, imagen: "dijes/Dije San Miguel Arcangel no incluye cadena 1,2 cms.png" },
+  { nombre: "Dije Tortuga 6x5mm", precio: 25000, imagen: "dijes/Dije tortuga 6x5mm.png" },
+  { nombre: "Dije Huella", precio: 30000, imagen: "dijes/Dije huella.png" },
+  { nombre: "Dije San Miguel Arcangel Mini 1,2 cm x 6 mm", precio: 30000, imagen: "dijes/Dije san MIguel Mini 1,2 cm x 6 mm.png" },
+  { nombre: "Dije Bolsa de Dinero 1,3 cm x 5 mm", precio: 30000, imagen: "dijes/Dije Bolsa de Dinero 1,3 cm x 5 mm.png" },
+  { nombre: "Dije Estrella de David 1,9 cm x 1,3 cm", precio: 70000, imagen: "dijes/Dije Estrella de David 1,9 cm x 1,3 cm.png" },
+  { nombre: "Dije Letra V 1,3 cm x 9 mm No incluye cadena", precio: 70000, imagen: "dijes/Dije Letra V 1,3 cm x 9 mm No incluye cadena.png" },
+  { nombre: "Dije Letra S 1,3 cm x 9 mm No incluye cadena", precio: 70000, imagen: "dijes/Dije Letra S 1,3 cm x 9 mm No incluye cadena.png" },
+  { nombre: "Dije Letra N 1,3 cm x 9 mm No incluye cadena", precio: 70000, imagen: "dijes/Dije Letra N 1,3 cm x 9 mm No incluye cadena.png" },
+  { nombre: "Dije Letra G 1,3 cm x 9 mm No incluye cadena", precio: 70000, imagen: "dijes/Dije Letra G 1,3 cm x 9 mm No incluye cadena.png" },
+  { nombre: "Dije Letra Y 1,3 cm x 9 mm No incluye cadena", precio: 70000, imagen: "dijes/Dije Letra Y 1,3 cm x 9 mm No incluye cadena.png" },
+  { nombre: "Dije Letra W 1,3 cm x 9 mm No incluye cadena", precio: 70000, imagen: "dijes/Dije Letra W 1,3 cm x 9 mm No incluye cadena.png" },
+  { nombre: "Dije Letra I 1,3 cm x 9 mm No incluye cadena", precio: 70000, imagen: "dijes/Dije Letra I 1,3 cm x 9 mm No incluye cadena.png" },
+  { nombre: "Dije Letra O 1,3 cm x 9 mm No incluye cadena", precio: 70000, imagen: "dijes/Dije Letra O 1,3 cm x 9 mm No incluye cadena.png" },
+  { nombre: "Dije Letra M 1,3 cm x 9 mm No incluye cadena", precio: 70000, imagen: "dijes/Dije Letra M 1,3 cm x 9 mm No incluye cadena.png" },
+  { nombre: "Dije Letra L 1,3 cm x 9 mm No incluye cadena", precio: 70000,  imagen: "dijes/Dije Letra L 1,3 cm x 9 mm No incluye cadena.png" },
+  { nombre: "Dije Letra K 1,3 cm x 9 mm No incluye cadena", precio: 70000, imagen: "dijes/Dije Letra K 1,3 cm x 9 mm No incluye cadena.png" },
+  { nombre: "Dije Letra J 1,3 cm x 9 mm No incluye cadena", precio: 70000, imagen: "dijes/Dije Letra J 1,3 cm x 9 mm No incluye cadena.png" },
+  { nombre: "Dije Letra F 1,3 cm x 9 mm No incluye cadena", precio: 70000, imagen: "dijes/Dije Letra F 1,3 cm x 9 mm No incluye cadena.png" },
+  { nombre: "Dije Letra D 1,3 cm x 9 mm No incluye cadena", precio: 70000, imagen: "dijes/Dije Letra D 1,3 cm x 9 mm No incluye cadena.png" },
+  { nombre: "Dije Letra C 1,3 cm x 9 mm No incluye cadena", precio: 70000, imagen: "dijes/Dije Letra C1,3 cm x 9 mm No incluye cadena.png" },
+  { nombre: "Dije Letra A 1,3 cm x 9 mm No incluye cadena", precio: 70000, imagen: "dijes/Dije Letra A 1,3 cm x 9 mm No incluye cadena.png" },
+  { nombre: "Dije corazón 6mm", precio: 25000, imagen: "dijes/Dije corazón 6mm.png" },
+  { nombre: "Dije perla", precio: 25000, imagen: "dijes/Dije perla.png" },
+  { nombre: "Dije San benito 8 mm", precio: 40000, imagen: "dijes/Dije San benito 8 mm.png" },
+  { nombre: "Dije Medalla Milagrosa 8 mm", precio: 30000, imagen: "dijes/Dije Medalla Milagrosa 8 mm.png" },
+  { nombre: "Dije Virgen Guadalupe 1,6 cm", precio: 50000, imagen: "dijes/Dije virgen guadalupe 1,6 cm.png" },
+  { nombre: "Dije Virgen Milagrosa 1,1 cm x 6 mm", precio: 25000, imagen: "dijes/Dije virgen milagrosa 1.1cm x 6mm.png" },
+  { nombre: "Dije búho 1,4cm x 6mm", precio: 25000, imagen: "dijes/Dije búho 1,4cm x 6mm.png" },
+  { nombre: "Dije cruz 2 cm, no incluye cadena", precio: 25000, imagen: "dijes/Dije cruz 2 cm, no incluye cadena..png" },
+  { nombre: "Dije Herraje Corazón", precio: 30000, imagen: "dijes/Herraje Corazón.png" },
+  { nombre: "Dije Herraje Infinito", precio: 25000, imagen: "dijes/Herraje infinito.png" },
+  { nombre: "Dije Herraje Cruz", precio: 40000, imagen: "dijes/Herraje cruz.png" },
+  { nombre: "Dije San Benito 8 mm", precio: 30000, imagen: "dijes/Dije san benito.png" },
+  { nombre: "Dije Virgen Guadalupe 1,6 cm", precio: 50000, imagen: "dijes/Dije virgen guadalupe.png" },
+  
+];
+  </script>
+
+  <!-- JS compartido — siempre al final -->
+  <script src="js/catalogos.js"></script>
+
+</body>
+</html>

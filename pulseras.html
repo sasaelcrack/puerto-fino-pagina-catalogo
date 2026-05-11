@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pulseras — Puerto Fino Plata Ley 925</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/puerto.css" />
+  <link rel="stylesheet" href="css/catalogos.css" />
+</head>
+<body class="page-catalogo">
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="logo y foto/logo.png" alt="Puerto Fino"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <span class="nav-logo-text" style="display:none;">Puerto Fino</span>
+    </a>
+    <span class="nav-tagline">Plata Ley 925</span>
+  </nav>
+
+  <!-- ── NAV CATEGORÍAS ── -->
+  <div class="cat-nav">
+    <div class="cat-nav-inner">
+          <a href="pulseras.html" class="cat-nav-link active">Pulseras</a>
+          <a href="aretes.html" class="cat-nav-link ">Aretes y Topos</a>
+          <a href="cadenas.html" class="cat-nav-link ">Cadenas</a>
+          <a href="dijes.html" class="cat-nav-link ">Dijes</a>
+          <a href="anillos.html" class="cat-nav-link ">Anillos</a>
+          <a href="rosarios.html" class="cat-nav-link ">Rosarios</a>
+          
+    </div>
+  </div>
+
+  <!-- ── HERO MINI ── -->
+  <div class="cat-hero">
+    <a href="index.html" class="cat-hero-back">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Volver al inicio
+    </a>
+    <h1 class="cat-hero-title">Pulseras</h1>
+    <div class="cat-hero-rule"></div>
+  </div>
+
+  <!-- ── FILTRO ── -->
+  <div class="filter-bar fade-up">
+    <p class="filter-count"><span id="productCount">0</span> productos</p>
+    <div class="filter-btns">
+      <button class="filter-btn" data-orden="asc">↑ Menor precio</button>
+      <button class="filter-btn" data-orden="desc">↓ Mayor precio</button>
+    </div>
+  </div>
+
+  <!-- ── GRID PRODUCTOS ── -->
+  <section class="productos-section">
+    <div class="productos-grid" id="productosGrid">
+      <!-- JS renderiza las tarjetas aquí -->
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <strong>Puerto Fino</strong>
+    <p class="footer-sub">© 2025 — Accesorios en Plata Ley 925</p>
+  </footer>
+
+  <!-- ── BACK TO TOP ── -->
+  <button class="back-top" id="backTop" aria-label="Volver arriba">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <!-- ── LIGHTBOX ── -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lbClose">✕</button>
+    <img class="lightbox-img" id="lbImg" src="" alt="" />
+    <div class="lightbox-info">
+      <h3 id="lbNombre"></h3>
+      <p id="lbPrecio"></p>
+    </div>
+  </div>
+
+  <!-- ── PRODUCTOS DATA ── -->
+  <!-- 
+    CÓMO AGREGAR PRODUCTOS:
+    - nombre: nombre del producto (string)
+    - precio: precio en pesos colombianos SIN puntos (número)
+    - imagen: ruta a la foto desde la raíz del proyecto
+    Ejemplo: { nombre: "Mi Producto", precio: 85000, imagen: "pulseras/mifoto.jpg" }
+  -->
+  <script>
+  window.PRODUCTOS = [
+  { nombre: "Pulseras 3'1 1.4mm 16 Cms", precio: 70000, imagen: "pulseras/Pulseras 3'1 1.4mm 16 Cms.png" },
+  { nombre: "Pulsera Marine 1,5mm 16cm", precio: 45000, imagen: "pulseras/Pulsera Marine 1,5mm 16cm.png" },
+  { nombre: "Pulsera Singapur 1,7 mm 16 Cms", precio: 45000, imagen: "pulseras/Pulsera Singapur 1,7 mm 16 Cms.png" },
+  { nombre: "Pulsera Marine 1,5mm 19,5 Cms", precio: 50000, imagen: "pulseras/Pulsera Marine 1,5mm 19,5 Cms.png" },
+  { nombre: "Pulsera China 2 mm 16 Cms S-56881", precio: 90000, imagen: "pulseras/Pulsera China 2 mm 16 Cms S-56881.png" },
+  { nombre: "Pulsera Cubana 1,9 mm 19.5 Cms", precio: 120000, imagen: "pulseras/Pulsera Cubana 1,9 mm 19.5 Cms.png" },
+  { nombre: "Pulsera China 2mm 19.5Cm", precio: 120000, imagen: "pulseras/Pulsera China 2mm 19.5Cm.png" },
+  { nombre: "Pulsera tejida 7 nudos, balin 3mm", precio: 40000, imagen: "pulseras/Pulsera tejida 7 nudos, balin 3mm.png" },
+  { nombre: "Pulsera tejida 7 nudos, balin3mm roja", precio: 40000, imagen: "pulseras/Pulsera tejida 7 nudos, balin3mm roja.png" },
+  { nombre: "Pulsera Bicolor Balin Italiano 3mm", precio: 50000, imagen: "pulseras/Pulsera Bicolor Balin Italiano 3mm.png" },
+  { nombre: "Pulsera Noor Moissanita 17,5Cms", precio: 400000, imagen: "pulseras/Pulsera Noor Moissanita 17,5Cms.png" },
+  { nombre: "Pulsera Spark Moissanita 17 Cms", precio: 710000, imagen: "pulseras/Pulsera Spark Moissanita 17 Cms.png" },
+  { nombre: "Pulsera Cleo Moissanita 15 Cms", precio: 710000, imagen: "pulseras/Pulsera Cleo Moissanita 15 Cms.png" },
+  { nombre: "Pulsera Gleam MT 16 Cms", precio: 210000, imagen: "pulseras/Pulsera Gleam MT 16 Cms.png" },
+  { nombre: "Pulsera Clair 16 Cms", precio: 210000, imagen: "pulseras/Pulsera Clair 16 Cms.png" },
+  { nombre: "Pulsera Sole Moissanita 17 Cms", precio: 700000, imagen: "pulseras/Pulsera Sole Moissanita 17 Cms.png" },
+  { nombre: "Pulsera Grace 17 Cms", precio: 210000, imagen: "pulseras/Pulsera Grace 17 Cms.png" },
+  { nombre: "pulsera balin 3 mm", precio: 21000, imagen: "pulseras/pulsera balin 3 mm.png" },
+  { nombre: "pulsera balin 3mm", precio: 21000, imagen: "pulseras/pulsera balin 3mm.png" },
+  { nombre: "Pulsera 7 nudos Balin 3 mm", precio: 22000, imagen: "pulseras/Pulsera 7 nudos Balin 3 mm.png" },
+  { nombre: "Pulsera San benito Ajustable", precio: 70000, imagen: "pulseras/Pulsera San benito Ajustable.png" },
+  { nombre: "Pulsera Colombia Balin 3mm", precio: 25000, imagen: "pulseras/Pulsera Colombia Balin 3mm.png" },
+  { nombre: "Pulsera guadalupe 3 mm", precio: 70000, imagen: "pulseras/Pulsera guadalupe 3 mm.png" },
+  { nombre: "Pulsera Balin Italy 3-4-6 Liso 5 mm", precio: 70000, imagen: "pulseras/Pulsera Balin Italy 3-4-6 Liso 5 mm.png" },
+  { nombre: "Pulsers Balin 4 mm", precio: 70000, imagen: "pulseras/Pulsers Balin 4 mm.png" },
+  { nombre: "pulsera balin 4 mm", precio: 70000, imagen: "pulseras/pulsera balin 4 mm.png" },
+  { nombre: "Pulsera Balin 3mm y 4mm", precio: 90000, imagen: "pulseras/Pulsera Balin 3mm y 4mm.png" },
+  { nombre: "Pulsera Trenzada Balin Italy 4mm", precio: 50000, imagen: "pulseras/Pulsera Trenzada Balin Italy 4mm.png" },
+  { nombre: "pulsera guadalupe balin italiano 4mm", precio: 60000, imagen: "pulseras/pulsera guadalupe balin italiano 4mm.png" },
+  { nombre: "Pulsera milagrosa balin italiano 3mm", precio: 90000, imagen: "pulseras/Pulsera milagrosa balin italiano 3mm.png" },
+  { nombre: "Pulsera San benito", precio: 90000, imagen: "pulseras/Pulsera San benito.png" },
+  { nombre: "Pulsera Halo Moissanita", precio: 600000, imagen: "pulseras/Pulsera Halo Moissanita.png" },
+  { nombre: "Set x 2 pulseras balin 4mm y 3mm", precio: 40000, imagen: "pulseras/Set x 2 pulseras balin 4mm y 3mm.png" },
+  { nombre: "Pulsera bolitas 18 cm", precio: 60000, imagen: "pulseras/Pulsera bolitas 18 cm.png" },
+  { nombre: "Pulsera Clover 1,2 cm 18 Cms", precio: 230000, imagen: "pulseras/Pulsera Clover 1,2 cm 18 Cms.png" },
+  { nombre: "Pulsera dije corazon", precio: 100000, imagen: "pulseras/Pulsera dije corazon.png" },
+  { nombre: "Pulsera dije tres gracias", precio: 110000, imagen: "pulseras/Pulsera dije tres gracias.png" },
+  { nombre: "pulsera balin 4mm", precio: 80000, imagen: "pulseras/pulsera balin 4mm.png" },
+  { nombre: "Set x 2 puLsera balin 4mm y 3mm", precio: 110000, imagen: "pulseras/Set x 2 puLsera balin 4mm y 3mm.png" },
+  { nombre: "Set pulsera balin 3mm y 4mm", precio: 110000, imagen: "pulseras/Set pUlsera balin 3mm y 4mm.png" },
+  { nombre: "Pulsera negra balin 4mm", precio: 50000, imagen: "pulseras/Pulsera negra balin 4mm.png" },
+  { nombre: "Pulsera 7 nudos,balin italiano 4mm", precio: 60000, imagen: "pulseras/Pulsera 7 nudos,balin italiano 4mm.png" },
+  { nombre: "Pulsera dije tres gracias,balin 3 y 4mm", precio: 130000, imagen: "pulseras/Pulsera dije tres gracias,balin 3 y 4mm.png" },
+  { nombre: "Pulsera roja 7 chakras", precio: 40000, imagen: "pulseras/Pulsera roja 7 chakras.png" },
+  { nombre: "Pulsera negra 7 chakras", precio: 40000, imagen: "pulseras/Pulsera negra 7 chakras.png" },
+  { nombre: "Pulsera Herraje infinito, balin 4mm", precio: 60000, imagen: "pulseras/Pulsera Herraje infinito, balin 4mm.png" },
+  { nombre: "pulsera herraje Infinito balin 4mm", precio: 60000, imagen: "pulseras/pulsera herraje Infinito balin 4mm.png" },
+  { nombre: "Pulsera dije corazon balin 4mm", precio: 70000, imagen: "pulseras/Pulsera dije corazon balin 4mm.png" },
+  { nombre: "Pulsera San miguel arcangel,balin 3mm", precio: 80000, imagen: "pulseras/Pulsera San miguel arcangel,balin 3mm.png" },
+  { nombre: "Pulsera dije corazon rojo balin 4mm", precio: 100000, imagen: "pulseras/Pulsera dije corazon rojo balin 4mm.png" },
+  { nombre: "Pulsera 7 chakras balin 3mm", precio: 70000, imagen: "pulseras/Pulsera 7 chakras balin 3mm.png" },
+  { nombre: "Pulsera balin diamantado 4mm", precio: 150000, imagen: "pulseras/Pulsera balin diamantado 4mm.png" },
+  { nombre: "Pulsera piedra natural jade balin 4mm", precio: 50000, imagen: "pulseras/Pulsera piedra natural jade balin 4mm.png" },
+  { nombre: "Pulsera piedra natural Cuarzo rosa balin 4mm", precio: 50000, imagen: "pulseras/Pulsera piedra natural Cuarzo rosa balin 4mm.png" },
+  { nombre: "Pulsera piedra natural Analista balin 4mm", precio: 50000, imagen: "pulseras/Pulsera piedra natural Analista balin 4mm.png" },
+  { nombre: "Pulsera Piedra Natural Onix, balin 4mm", precio: 50000, imagen: "pulseras/Pulsera Piedra Natural Onix, balin 4mm.png" },
+  { nombre: "Pulsera san miguel Balin 4mm y 3mm", precio: 100000, imagen: "pulseras/Pulsera san miguel Balin 4mm y 3mm.png" },
+  { nombre: "Pulsera San benito balin 3mm", precio: 50000, imagen: "pulseras/Pulsera San benito balin 3mm.png" },
+  { nombre: "Tobillera Corazones 23 cm", precio: 110000, imagen: "pulseras/Tobillera Corazones 23 cm.png" },
+  { nombre: "Tobillera 23 cm", precio: 80000, imagen: "pulseras/Tobillera 23 cm.png" },
+  { nombre: "Pulsera 7 nudos balin 4 mm", precio: 60000, imagen: "pulseras/Pulsera 7 nudos balin 4 mm.png" },
+  { nombre: "Pulsera Amor propio, Sanacion emocional proteccion", precio: 70000, imagen: "pulseras/Pulsera Amor propio, Sanacion emocional proteccion.png" },
+  { nombre: "Pulsera dije corazon balin 3 mm", precio: 50000, imagen: "pulseras/Pulsera dije corazon balin 3 mm.png" },
+  { nombre: "Pulsera dije san benito balin 4 mm", precio: 60000, imagen: "pulseras/Pulsera dije san benito balin 4 mm.png" },
+  { nombre: "Pulsera 19 cm", precio: 40000, imagen: "pulseras/Pulsera 19 cm.png" },
+];
+  </script> 
+  <!-- JS compartido — siempre al final -->
+  <script src="js/catalogos.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rosarios — Puerto Fino Plata Ley 925</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/puerto.css" />
+  <link rel="stylesheet" href="css/catalogos.css" />
+</head>
+<body class="page-catalogo">
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="logo y foto/logo.png" alt="Puerto Fino"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <span class="nav-logo-text" style="display:none;">Puerto Fino</span>
+    </a>
+    <span class="nav-tagline">Plata Ley 925</span>
+  </nav>
+
+  <!-- ── NAV CATEGORÍAS ── -->
+  <div class="cat-nav">
+    <div class="cat-nav-inner">
+          <a href="pulseras.html" class="cat-nav-link ">Pulseras</a>
+          <a href="aretes.html" class="cat-nav-link ">Aretes y Topos</a>
+          <a href="cadenas.html" class="cat-nav-link ">Cadenas</a>
+          <a href="dijes.html" class="cat-nav-link ">Dijes</a>
+          <a href="anillos.html" class="cat-nav-link ">Anillos</a>
+          <a href="rosarios.html" class="cat-nav-link active">Rosarios</a>
+          
+    </div>
+  </div>
+
+  <!-- ── HERO MINI ── -->
+  <div class="cat-hero">
+    <a href="index.html" class="cat-hero-back">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Volver al inicio
+    </a>
+    <h1 class="cat-hero-title">Rosarios</h1>
+    <div class="cat-hero-rule"></div>
+  </div>
+
+  <!-- ── FILTRO ── -->
+  <div class="filter-bar fade-up">
+    <p class="filter-count"><span id="productCount">0</span> productos</p>
+    <div class="filter-btns">
+      <button class="filter-btn" data-orden="asc">↑ Menor precio</button>
+      <button class="filter-btn" data-orden="desc">↓ Mayor precio</button>
+    </div>
+  </div>
+
+  <!-- ── GRID PRODUCTOS ── -->
+  <section class="productos-section">
+    <div class="productos-grid" id="productosGrid">
+      <!-- JS renderiza las tarjetas aquí -->
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <strong>Puerto Fino</strong>
+    <p class="footer-sub">© 2025 — Accesorios en Plata Ley 925</p>
+  </footer>
+
+  <!-- ── BACK TO TOP ── -->
+  <button class="back-top" id="backTop" aria-label="Volver arriba">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <!-- ── LIGHTBOX ── -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lbClose">✕</button>
+    <img class="lightbox-img" id="lbImg" src="" alt="" />
+    <div class="lightbox-info">
+      <h3 id="lbNombre"></h3>
+      <p id="lbPrecio"></p>
+    </div>
+  </div>
+
+  <!-- ── PRODUCTOS DATA ── -->
+  <!-- 
+    CÓMO AGREGAR PRODUCTOS:
+    - nombre: nombre del producto (string)
+    - precio: precio en pesos colombianos SIN puntos (número)
+    - imagen: ruta a la foto desde la raíz del proyecto
+    Ejemplo: { nombre: "Mi Producto", precio: 85000, imagen: "rosario/mifoto.jpg" }
+  -->
+  <script>
+    window.PRODUCTOS = [
+  { nombre: "Rosario 2mm 44.5cm", precio: 180000, imagen: "rosario/Captura de pantalla 2026-05-09 151051.png" }
+];
+  </script>
+
+  <!-- JS compartido — siempre al final -->
+  <script src="js/catalogos.js"></script>
+
+</body>
+</html>
